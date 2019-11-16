@@ -1,3 +1,4 @@
+## Prof.: Non ci sono commenti: codice non manutenibile
 xpos = 60 
 ypos = 60
 b_height = 400;
@@ -11,6 +12,8 @@ punt1=0;
 
 def setup():
     global xpos,ypos,b_width,b_height
+## Prof.: Non serve configurare il background qui, perché è sovrascritto da draw
+## Prof.: le variabili globali vanno definite global solo se le cambi nella funzione
     background(18,3,255)
     size (b_width, b_height)
     
@@ -28,11 +31,13 @@ def draw():
     
     if (ypos+25>height-25) and (xpos+25)>x_racchetta and (xpos-25)<(x_racchetta+100) :
         y_dir = -1
+## Prof.: I punti si segnano se si tocca la fine del campo e non la racchetta
         punt+=1
         
     
     if (ypos-25<25) and (xpos+25)>x_racchetta1 and (xpos-25)<(x_racchetta1+100) :
         y_dir = +1
+## Prof.: I punti si segnano se si tocca la fine del campo e non la racchetta
         punt1+=1
         
     if (xpos+25 > width or xpos-25 < 0):
@@ -59,6 +64,8 @@ def draw():
     
 def keyPressed():
     global x_racchetta,x_racchetta1
+## Prof.: non hai gestito l'uscita delle racchette dal campo
+
     if  keyCode == LEFT:
         x_racchetta -= 20
     if  keyCode == RIGHT:
